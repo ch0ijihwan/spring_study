@@ -7,27 +7,27 @@ import java.util.List;
 import java.util.Optional;
 
 public class JpaMemberRepository implements MemberRepository {
-    private final EntityManager em;
+    private final EntityManager entityManager;
 
-    public JpaMemberRepository(EntityManager em) {
-        this.em = em;
+    public JpaMemberRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Override
     public Member save(Member member) {
-        em.persist(member);
+        entityManager.persist(member);
         return member;
     }
 
     @Override
     public Optional<Member> findById(Long id) {
-        Member member = em.find(Member.class, id);
+        Member member = entityManager.find(Member.class, id);
         return Optional.ofNullable(member);
     }
 
     @Override
     public Optional<Member> findByName(String name) {
-        List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
+        List<Member> result = entityManager.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
         return result.stream()
@@ -37,6 +37,6 @@ public class JpaMemberRepository implements MemberRepository {
 
     @Override
     public List<Member> findAll() {
-        return em.createQuery("select m from Member m ", Member.class).getResultList();
+        return entityManager.createQuery("select m from Member m ", Member.class).getResultList();
     }
 }
