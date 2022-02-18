@@ -58,7 +58,6 @@ class MemoryMemberRepositoryTest {
         Member member = new Member();
         member.setName("Spring");
         repository.save(member);
-
         Member otherMember = new Member();
         otherMember.setName("otherSpring");
         repository.save(otherMember);
