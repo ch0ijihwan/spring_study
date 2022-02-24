@@ -1,15 +1,17 @@
 package helo.core.order;
 
 import helo.core.discount.DiscountPolicy;
-import helo.core.discount.FixDiscountPolicy;
 import helo.core.member.Member;
 import helo.core.member.MemberRepository;
-import helo.core.member.MemoryMemberRepository;
 
 public class OrderServiceIml implements OrderService {
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    public OrderServiceIml(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
