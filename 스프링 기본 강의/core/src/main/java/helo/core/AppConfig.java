@@ -1,7 +1,7 @@
 package helo.core;
 
 import helo.core.discount.DiscountPolicy;
-import helo.core.discount.FixDiscountPolicy;
+import helo.core.discount.RateDiscountPolicy;
 import helo.core.member.MemberRepository;
 import helo.core.member.MemberService;
 import helo.core.member.MemberServiceImpl;
@@ -23,6 +23,6 @@ public class AppConfig {
     }
 
     private DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }
