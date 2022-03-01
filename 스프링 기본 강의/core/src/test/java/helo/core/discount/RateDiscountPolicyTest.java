@@ -12,7 +12,7 @@ class RateDiscountPolicyTest {
 
     @Test
     @DisplayName("VIP는 10% 할인이 적용되어야 한다.")
-    void vip_Discount() {
+    void vipDiscount() {
         //given
         Member member = new Member(1L, "memberVIP", Grade.VIP);
 
@@ -25,7 +25,7 @@ class RateDiscountPolicyTest {
 
     @Test
     @DisplayName("VIP가 아닌 경우에는 10% 할인이 적용되지 않아야 한다.")
-    void BAISIC_Discount() {
+    void BasicDiscount() {
         //given
         Member member = new Member(2L, "memberVIP", Grade.BASIC);
 
