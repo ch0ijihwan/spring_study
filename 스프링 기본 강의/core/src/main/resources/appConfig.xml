@@ -2,15 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id ="memberService" class="helo.core.member.MemberServiceImpl">
+    <bean id ="memberService" class="hello.core.member.MemberServiceImpl">
         <constructor-arg name = "memberRepository" ref ="memberRepository"/>
     </bean>
-    <bean id="memberRepository" class="helo.core.member.MemoryMemberRepository"/>
+    <bean id="memberRepository" class="hello.core.member.MemoryMemberRepository"/>
 
-    <bean id="orderService" class="helo.core.order.OrderServiceIml">
+    <bean id="orderService" class="hello.core.order.OrderServiceIml">
         <constructor-arg name="memberRepository" ref="memberRepository"/>
         <constructor-arg name="discountPolicy" ref="discountPolicy"/>
     </bean>
 
-    <bean id = "discountPolicy" class ="helo.core.discount.RateDiscountPolicy"/>
+    <bean id = "discountPolicy" class ="hello.core.discount.RateDiscountPolicy"/>
 </beans>
