@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -14,5 +17,8 @@ import org.springframework.context.annotation.FilterType;
         //수동으로 설정한 것도 스캔 할 수 있기 때문에 예외적으로 제외 시킴
 )// -> 위의 설정을 하지않은 경우(default) -> 현재의 패키지, 즉 hello.core 를 기준으로 검샥
 public class AutoAppConfig {
-
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memberRepository(){
+        return new MemoryMemberRepository();
+    }
     }
