@@ -15,8 +15,8 @@ class StatefulServiceTest {
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
 
 
-        statefulService1.order("userA",10000);
-        statefulService2.order("userB",20000);
+        statefulService1.order("userA", 10000);
+        statefulService2.order("userB", 20000);
 
         int price = statefulService1.getPrice();
         System.out.println("price = " + price);

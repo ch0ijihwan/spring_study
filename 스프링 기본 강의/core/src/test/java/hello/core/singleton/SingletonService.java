@@ -14,7 +14,7 @@ public class SingletonService {
     private SingletonService() {
     }
 
-    public void logic(){
+    public void logic() {
         System.out.println("싱글톤 객체의 로직 메서드 호출");
     }
 }
