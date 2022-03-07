@@ -28,7 +28,8 @@ public class AppConfig {
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-        return new OrderServiceIml(memberRepository(), discountPolicy());
+//        return new OrderServiceIml(memberRepository(), discountPolicy());
+        return null;
     }
 
     @Bean
