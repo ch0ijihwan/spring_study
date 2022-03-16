@@ -16,10 +16,8 @@ class PrototypeTest {
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
         System.out.println("find prototypeBean2");
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
-
         System.out.println("prototypeBean1 = " + prototypeBean1);
         System.out.println("prototypeBean2 = " + prototypeBean2);
-
         Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
     }
 
