@@ -17,13 +17,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AllBeanTest {
     @Test
     void finAllBean() {
-        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class,DiscountService.class);
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountService.class);
 
         DiscountService discountService = ac.getBean(DiscountService.class);
-        Member member = new Member(1L,"userA", Grade.VIP);
-       int discountPrice =  discountService.discount(member, 1000, "fixDiscountPolicy");
-       assertThat(discountService).isInstanceOf(DiscountService.class);
-       assertThat(discountPrice).isEqualTo(1000);
+        Member member = new Member(1L, "userA", Grade.VIP);
+        int discountPrice = discountService.discount(member, 1000, "fixDiscountPolicy");
+        assertThat(discountService).isInstanceOf(DiscountService.class);
+        assertThat(discountPrice).isEqualTo(1000);
 
 
         int rateDiscountPolicy = discountService.discount(member, 20000, "rateDiscountPolicy");
@@ -44,7 +44,7 @@ class AllBeanTest {
 
         public int discount(Member member, int price, String discountCode) {
             DiscountPolicy discountPolicy = policyMap.get(discountCode);
-            return discountPolicy.discount(member,price);
+            return discountPolicy.discount(member, price);
         }
     }
 }
