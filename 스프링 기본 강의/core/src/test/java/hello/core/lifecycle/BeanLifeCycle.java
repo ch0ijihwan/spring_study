@@ -8,17 +8,16 @@ import org.springframework.context.annotation.Configuration;
 
 class BeanLifeCycle {
     @Test
-    public void lifeCycleTest() {
+    void lifeCycleTest() {
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
         NetworkClient client = ac.getBean(NetworkClient.class);
         ac.close();
-
     }
 
     @Configuration
     static class LifeCycleConfig {
-        //@Bean(initMethod = "init", destroyMethod = "close")
-        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close")
+        //@Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-sprint.dev");
