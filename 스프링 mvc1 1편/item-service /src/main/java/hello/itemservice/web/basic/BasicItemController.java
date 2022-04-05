@@ -5,9 +5,7 @@ import hello.itemservice.domain.item.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -41,5 +39,44 @@ public class BasicItemController {
     public void init() {
         itemRepository.save(new Item("itemA", 10000, 10));
         itemRepository.save(new Item("itemB", 20000, 30));
+    }
+
+    @GetMapping("/add")
+    public String addForm() {
+
+        return "basic/addForm";
+    }
+
+    //    @PostMapping("/add")
+    public String addItemV1(@RequestParam String itemName,
+                            @RequestParam Integer price,
+                            @RequestParam Integer quantity,
+                            Model model) {
+        Item savedItem = itemRepository.save(new Item(itemName, price, quantity));
+        model.addAttribute(savedItem);
+        return "basic/item";
+    }
+
+    //    @PostMapping("/add")
+    public String addItemV2(@ModelAttribute("item") Item item, Model model) {
+        itemRepository.save(item);
+//        model.addAttribute(item); @ModelAttribute 에 의해 자동 추가
+        return "basic/item";
+    }
+
+    //    @PostMapping("/add")
+    public String addItemV3(@ModelAttribute Item item, Model model) {
+        //("item") 생략시 첫글자를 소문자로 바꾼 것이 디폴트 => Item 을 item 으로
+        itemRepository.save(item);
+//        model.addAttribute(item); @ModelAttribute 에 의해 자동 추가
+        return "basic/item";
+    }
+
+    @PostMapping("/add")
+    public String addItemV4(Item item) {
+        //("item") 생략시 첫글자를 소문자로 바꾼 것이 디폴트 => Item 을 item 으로
+        itemRepository.save(item);
+//        model.addAttribute(item); @ModelAttribute 에 의해 자동 추가
+        return "basic/item";
     }
 }
