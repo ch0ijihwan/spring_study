@@ -79,4 +79,17 @@ public class BasicItemController {
 //        model.addAttribute(item); @ModelAttribute 에 의해 자동 추가
         return "basic/item";
     }
+
+    @GetMapping("/{itemId}/edit")
+    public String editForm(@PathVariable Long itemId, Model model) {
+        Item foundItem = itemRepository.findById(itemId);
+        model.addAttribute("item", foundItem);
+        return "basic/editForm";
+    }
+
+    @PostMapping("/{itemId}/edit")
+    public String edit(@PathVariable Long itemId, @ModelAttribute Item item) {
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}";
+    }
 }
