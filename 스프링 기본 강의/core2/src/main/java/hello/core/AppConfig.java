@@ -10,7 +10,7 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@Configuration // CGLIB 생성이 됨 -> 싱글톤 보장. @Configuration 이 없으면 싱글톤 보장이 안됨.
 public class AppConfig {
 
     //@Bean  memberService -> new MemoryMemberRepository()
