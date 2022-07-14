@@ -20,7 +20,7 @@ class BeanLifeCycleTest {
         @Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
-            networkClient.setUrl("http://hello-sprint..dev");
+            networkClient.setUrl("http://hello-sprint.dev");
             return networkClient;
         }
     }
