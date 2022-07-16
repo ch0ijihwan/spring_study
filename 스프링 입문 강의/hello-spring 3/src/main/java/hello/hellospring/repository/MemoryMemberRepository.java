@@ -3,9 +3,8 @@ package hello.hellospring.repository;
 import hello.hellospring.domain.Member;
 
 import java.util.*;
-import java.util.jar.JarEntry;
 
-public class MemoryMemberRepository implements MemberRepository{
+public class MemoryMemberRepository implements MemberRepository {
 
     Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
@@ -34,7 +33,7 @@ public class MemoryMemberRepository implements MemberRepository{
         return new ArrayList<>(store.values());
     }
 
-    public void clearStore(){
+    public void clearStore() {
         store.clear();
     }
 }
