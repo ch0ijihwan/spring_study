@@ -30,9 +30,9 @@ public class FrontControllerServletV3 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("FrontControllerServletV3.service");
-        String requestURL = request.getRequestURI();
+        String requestURI = request.getRequestURI();
 
-        ControllerV3 controller = controllerMap.get(requestURL);
+        ControllerV3 controller = controllerMap.get(requestURI);
 
         if (controller == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
