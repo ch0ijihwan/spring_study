@@ -61,7 +61,7 @@ public class BasicItemController {
         return "/basic/item";
     }
 
-//    @PostMapping("/add")
+    //    @PostMapping("/add")
     public String addItemV3(@ModelAttribute Item item) {//@ModelAttribute 파라미터 명시 안할 시, Item 객체의 첫글자를 소문자로 한 item  으로 Model에  전달
 
         itemRepository.save(item);
@@ -74,6 +74,20 @@ public class BasicItemController {
         itemRepository.save(item);
         return "/basic/item";
     }
+
+    @GetMapping("/{itemId}/edit")
+    public String editForm(@PathVariable Long itemId, Model model) {
+        Item item = itemRepository.findById(itemId);
+        model.addAttribute("item", item);
+        return "/basic/editForm";
+    }
+
+    @PostMapping("/{itemId}/edit")
+    public String edit(@PathVariable Long itemId, @ModelAttribute Item item){
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}";
+    }
+
 
 
     /**
