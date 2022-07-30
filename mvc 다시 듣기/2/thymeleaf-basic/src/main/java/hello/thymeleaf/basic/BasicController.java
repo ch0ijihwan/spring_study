@@ -92,13 +92,18 @@ public class BasicController {
     @GetMapping("/attribute")
     public String attribute(){
         return "basic/attribute";
-
     }
 
     @GetMapping("/each")
     public String each(Model model) {
         addUsers(model);
         return "/basic/each";
+    }
+
+    @GetMapping("/condition")
+    public String condition(Model model){
+        addUsers(model);
+        return "/basic/condition";
     }
 
     private void addUsers(Model model) {
