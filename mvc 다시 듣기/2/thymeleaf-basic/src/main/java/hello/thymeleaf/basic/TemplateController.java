@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/template")
-public class TemolateController {
+public class TemplateController {
 
     @GetMapping("/fragment")
     public String template() {
@@ -16,5 +16,11 @@ public class TemolateController {
     @GetMapping("/layout")
     public String layout() {
         return "/template/layout/layoutMain";
+    }
+
+    @GetMapping("/layoutExtend")
+    public String layoutExtend () {
+
+        return "template/layoutExtend/layoutExtendMain";
     }
 }
