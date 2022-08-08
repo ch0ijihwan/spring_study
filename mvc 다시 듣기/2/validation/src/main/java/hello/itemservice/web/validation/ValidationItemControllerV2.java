@@ -167,7 +167,6 @@ public class ValidationItemControllerV2 {
     }
 
 
-
     //    @PostMapping("/add")
     public String addItemV4(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 

@@ -50,8 +50,7 @@ public class ValidationItemControllerV3 {
         if (item.getPrice() != null && item.getQuantity() != null) {
             int resultPrice = item.getPrice() * item.getQuantity();
             if (resultPrice < 10000) {
-                bindingResult.reject("totalPriceMin", new Object[]{10000, resultPrice}, null
-                );
+                bindingResult.reject("totalPriceMin", new Object[]{10000, resultPrice}, null);
             }/* 오브젝트 관련 오류는 그냥 자바 코드로 해결 하는게 더 직관적이고 좋음 */
 
         }
