@@ -23,10 +23,6 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver {
             log.error("resolver ex", e);
             e.printStackTrace();
         }
-
-
         return null;
-
-
     }
 }
