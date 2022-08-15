@@ -36,7 +36,6 @@ public class ServletUploadControllerV2 {
 
         String itemName = request.getParameter("itemName");
         log.info("itemName={}", itemName);
-
         Collection<Part> parts = request.getParts();
         log.info("parts={}", parts);
         for (Part part : parts) {
