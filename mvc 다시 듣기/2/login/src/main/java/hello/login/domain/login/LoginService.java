@@ -19,5 +19,4 @@ public class LoginService {
                 .filter(m -> m.getPassword().equals(password))
                 .orElse(null);
     }
-
 }
